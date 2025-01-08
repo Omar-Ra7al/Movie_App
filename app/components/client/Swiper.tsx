@@ -13,7 +13,7 @@ import { trindingMovies } from "@/app/api/api";
 import { useEffect, useState } from "react";
 import { ImSpinner9 } from "react-icons/im";
 
-const imageClass = "max-w-full h-auto object-cover object-center";
+const imageClass = "w-full h-auto object-cover object-center";
 const SwiperImageTsx = ({
   src,
   alt,
@@ -27,7 +27,7 @@ const SwiperImageTsx = ({
     <Image
       src={src}
       alt={alt}
-      width={1800} // عرض الصورة
+      width={1080} // عرض الصورة
       height={400} // ارتفاع الصورة
       className={imageClass}
       priority={priority}
