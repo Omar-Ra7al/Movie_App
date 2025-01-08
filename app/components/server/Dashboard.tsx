@@ -40,7 +40,7 @@ const Dashboard = async () => {
             <li>Movies and Tv Shows without ads</li>
             <li>Access for the whole family 5 devices</li>
           </ul>
-          <button className="btn rounded-lg w-full bg-main p-2 ">
+          <button className="btn rounded-lg w-full bg-main p-2 text-white ">
             Subscribe Now{" "}
           </button>
         </div>

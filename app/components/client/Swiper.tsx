@@ -13,7 +13,7 @@ import { trindingMovies } from "@/app/api/api";
 import { useEffect, useState } from "react";
 import { ImSpinner9 } from "react-icons/im";
 
-const imageClass = "w-full h-auto  object-cover object-center";
+const imageClass = "max-w-full h-auto object-cover object-center";
 const SwiperImageTsx = ({
   src,
   alt,
@@ -71,7 +71,7 @@ const SwiperHome = () => {
           const imageUrl = `https://image.tmdb.org/t/p/${imageSize}${item.poster_path}`;
           return (
             item.poster_path && (
-              <SwiperSlide key={index} className="relative">
+              <SwiperSlide key={index} className="relative overflow-hidden">
                 <div className={textClass}>
                   <h2 className=" text-2xl line-clamp-1 text-white font-semibold ">
                     {item.original_title}
