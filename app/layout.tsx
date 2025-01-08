@@ -1,14 +1,17 @@
-import type { Metadata } from "next";
-import { Geist, Geist_Mono } from "next/font/google";
+// Styles >>
 import "./globals.css";
+import { Montserrat } from "next/font/google";
+// Metadata >>
+import type { Metadata } from "next";
+// Redux Provider >>
+import StoreProvider from "@/app/redux/StoreProvider";
+// Static Components >>
+import NavBar from "@/app/components/server/NavBar";
+import Alert from "./components/client/Alert";
+import AuthChanged from "./firebase/AuthChanged";
 
-const geistSans = Geist({
-  variable: "--font-geist-sans",
-  subsets: ["latin"],
-});
-
-const geistMono = Geist_Mono({
-  variable: "--font-geist-mono",
+const fontVariable = Montserrat({
+  weight: ["300", "400", "500", "600", "700", "800", "900"],
   subsets: ["latin"],
 });
 
@@ -23,11 +26,15 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html lang="en">
+    <html lang="en" className="dark">
       <body
-        className={`${geistSans.variable} ${geistMono.variable} antialiased`}
-      >
-        {children}
+        className={`${fontVariable.className} antialiased flex ml-0 sm:ml-20 pt-6 px-6 pb-28 md:pb-6`}>
+        <StoreProvider>
+          <AuthChanged />
+          <Alert />
+          <NavBar />
+          {children}
+        </StoreProvider>
       </body>
     </html>
   );
