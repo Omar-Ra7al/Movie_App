@@ -2,7 +2,7 @@ import { getMovieById } from "@/app/api/api";
 import CardActions from "@/app/components/client/CardActions";
 import Title from "@/app/components/shared/Title";
 import Image from "next/image";
-const MoviePage = async ({ params }: { params: { id: string } }) => {
+const MoviePage = async ({ params }: { params: any }) => {
   const { id } = await params;
   const data = await getMovieById(id);
   const movie = data;
