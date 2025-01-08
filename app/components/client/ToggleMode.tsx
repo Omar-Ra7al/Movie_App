@@ -3,7 +3,7 @@ import { useState } from "react";
 import { FaMoon, FaSun } from "react-icons/fa";
 import { IoMdSunny } from "react-icons/io";
 const ThemeToggleButton = () => {
-  const [darkMode, setDarkMode] = useState(false);
+  const [darkMode, setDarkMode] = useState(true);
 
   const toggleTheme = () => {
     if (darkMode) {

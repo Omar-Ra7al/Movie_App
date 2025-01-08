@@ -26,9 +26,9 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html lang="en" className="dark">
+    <html lang="en">
       <body
-        className={`${fontVariable.className} antialiased flex ml-0 sm:ml-20 pt-6 px-6 pb-28 md:pb-6`}>
+        className={`${fontVariable.className} dark antialiased flex ml-0 sm:ml-20 pt-6 px-6 pb-28 md:pb-6`}>
         <StoreProvider>
           <AuthChanged />
           <Alert />
