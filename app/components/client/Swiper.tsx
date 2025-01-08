@@ -75,7 +75,7 @@ const SwiperHome = () => {
                     {item.overview}
                   </p>
                 </div>
-                {item.title == data[0].title ? (
+                {item.title == data[0]?.title ? (
                   <SwiperImageTsx
                     src={imageUrl}
                     alt={item.title || "Movie"}
