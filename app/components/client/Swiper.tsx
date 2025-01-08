@@ -37,7 +37,12 @@ const SwiperImageTsx = ({
 const textClass =
   "z-50 py-2 px-6 h-full w-full bg-black/20 backdrop-blur-sm absolute top-0 left-0 flex flex-col justify-center gap-2";
 const SwiperHome = () => {
-  const [data, setData] = useState([]);
+  interface Movie {
+    poster_path: string;
+    original_title: string;
+    overview: string;
+  }
+  const [data, setData] = useState<Movie[]>([]);
   useEffect(() => {
     const fetchTrendingMovies = async () => {
       const response = await trindingMovies(1);
@@ -75,7 +80,7 @@ const SwiperHome = () => {
                     {item.overview}
                   </p>
                 </div>
-                {item == data[0] ? (
+                {item.poster_path === data[0].poster_path ? (
                   <SwiperImageTsx
                     src={imageUrl}
                     alt={item.title || "Movie"}
