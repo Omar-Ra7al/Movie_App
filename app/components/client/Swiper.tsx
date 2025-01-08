@@ -14,7 +14,15 @@ import { useEffect, useState } from "react";
 import { ImSpinner9 } from "react-icons/im";
 
 const imageClass = "w-full h-auto  object-cover object-center";
-const SwiperImageTsx = ({ src, alt }: { src: string; alt: string }) => {
+const SwiperImageTsx = ({
+  src,
+  alt,
+  priority,
+}: {
+  src: string;
+  alt: string;
+  priority: boolean;
+}) => {
   return (
     <Image
       src={src}
@@ -22,8 +30,7 @@ const SwiperImageTsx = ({ src, alt }: { src: string; alt: string }) => {
       width={1800} // عرض الصورة
       height={400} // ارتفاع الصورة
       className={imageClass}
-      priority
-      
+      priority={priority}
     />
   );
 };
@@ -68,7 +75,19 @@ const SwiperHome = () => {
                     {item.overview}
                   </p>
                 </div>
-                <SwiperImageTsx src={imageUrl} alt={item.title || "Movie"} />
+                {item.title == data[0].title ? (
+                  <SwiperImageTsx
+                    src={imageUrl}
+                    alt={item.title || "Movie"}
+                    priority={true}
+                  />
+                ) : (
+                  <SwiperImageTsx
+                    src={imageUrl}
+                    alt={item.title || "Movie"}
+                    priority={false}
+                  />
+                )}
               </SwiperSlide>
             )
           );
