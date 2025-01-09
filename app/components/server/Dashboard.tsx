@@ -6,6 +6,7 @@ import SwiperHome from "../client/Swiper";
 import Logo from "../shared/Logo";
 import Search from "../client/Search";
 import { trindingMovies } from "@/app/api/api";
+import Pagination from "../client/Pagination";
 
 const Dashboard = async () => {
   const treindingMoviesData = await trindingMovies(1);
@@ -41,16 +42,15 @@ const Dashboard = async () => {
             <li>Access for the whole family 5 devices</li>
           </ul>
           <button className="btn rounded-lg w-full bg-main p-2 text-white ">
-            Subscribe Now{" "}
+            Subscribe Now
           </button>
         </div>
       </div>
       {/*  //>> */}
 
       <Search />
-      <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 justify-items-center gap-x-6 gap-y-8 ">
-        <TrindingCard />
-      </div>
+      <TrindingCard />
+
     </div>
   );
 };
