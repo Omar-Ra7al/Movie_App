@@ -11,9 +11,9 @@ const MoviePage = async ({ params }: { params: any }) => {
 
   const imageUrl = `https://image.tmdb.org/t/p/${imageSize}${movie.poster_path}`;
   return (
-    <div>
+    <div className="w-full">
       <Title title={movie.original_title} />
-      <div className=" mt-8 group flex flex-col md:flex-row mx-auto w-full  md:h-[600px]  rounded-lg overflow-hidden shadow-sm shadow-secondary ">
+      <div className="w-full mt-8 group flex flex-col md:flex-row mx-auto  md:h-[600px]  rounded-lg overflow-hidden shadow-sm shadow-secondary ">
         <div className="w-full h-2/4 max-h-[350px] md:max-h-full md:h-full flex-1">
           <Image
             className="hover:object-top transition-all duration-300 object-cover object-center w-full h-full"

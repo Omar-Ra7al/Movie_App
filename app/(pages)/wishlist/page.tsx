@@ -33,18 +33,20 @@ const page = () => {
   }
 
   useEffect((): any => {
-    const data = async () => {
-      try {
-        // Fetch all movies in parallel
-        const results = await Promise.allSettled(
-          items.map((id) => getMovieById(id))
-        );
-        setWishList(results.reverse());
-      } catch (error) {
-        console.error("Error fetching wishlist:", error);
-      }
-    };
-    data();
+    if (authStatus == AuthStatus.loggedIn) {
+      const data = async () => {
+        try {
+          // Fetch all movies in parallel
+          const results = await Promise.allSettled(
+            items.map((id) => getMovieById(id))
+          );
+          setWishList(results.reverse());
+        } catch (error) {
+          console.error("Error fetching wishlist:", error);
+        }
+      };
+      data();
+    }
   }, [items]);
 
   return (
@@ -65,7 +67,7 @@ const page = () => {
                     {movie.status === "fulfilled" && (
                       <>
                         <Image
-                          className="group-hover:object-bottom transition-all duration-300 object-cover object-top w-full h-full"
+                          className="group-hover:object-bottom transition-all duration-700 object-cover object-top w-full h-full"
                           src={imageUrl}
                           alt={movie.value.original_title}
                           width={500}

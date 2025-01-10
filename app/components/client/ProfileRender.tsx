@@ -11,7 +11,7 @@ import { AuthStatus } from "@/app/models/types";
 const ProfileRender = () => {
   const router = useRouter();
   const { authStatus } = useSelector((state: RootState) => state.user);
-  const btnClass = "bg-white shadow-sm text-black rounded-md text-center px-4";
+  const btnClass = "bg-white z-[55] shadow-sm text-black rounded-md text-center px-4";
   const [loader, setLoader] = useState({ type: "" });
   return (
     <>

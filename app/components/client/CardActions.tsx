@@ -74,7 +74,7 @@ const CardActions = ({ id }: { id: string }) => {
         type="button"
         icon={<FaLocationArrow />}
         className={`${iconsClass} `}
-        onClick={() => router.push(`/movies/${id}`)}
+        onClick={() => router.push(`/movie-id/${id}`)}
       />
     </>
   );

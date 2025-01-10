@@ -21,7 +21,7 @@ const ThemeToggleButton = () => {
         onClick={toggleTheme}
         className="flex items-center justify-center rounded-2xl 
                 border-2 border-secondary w-full h-full cursor-pointer
-                hover:border-active transition duration-300 mt-3 p-3">
+                hover:border-active transition duration-300 md:mt-3 p-3">
         {darkMode ? (
           <IoMdSunny className="text-yellow-500 text-md" size={20} />
         ) : (

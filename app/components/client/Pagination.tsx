@@ -1,15 +1,57 @@
 "use client";
+// Next js >>
 import { useRouter } from "next/navigation";
-const Pagination = (totalPages: any) => {
+import { useParams } from "next/navigation";
+// Componetns >>
+import Button from "../shared/Button";
+
+import { useState } from "react";
+
+const Pagination = ({ totalPages }: any) => {
   const router = useRouter();
-  console.log(totalPages);
+
+  const params = useParams();
+  const { pageNumber } = params;
+  const currentPage = Number(pageNumber) || 1;
+
+  const [page, setPage] = useState({
+    start: currentPage - 1,
+    end: currentPage + 3,
+  });
+
+  let pagesTsx = [];
+  for (let i = 1; i < page.end; i++) {
+    pagesTsx.push(
+      <Button
+        key={i}
+        type={"button"}
+        text={`${i}`}
+        className={`${currentPage == i ? "text-active" : ""}`}
+        onClick={() => {
+          setPage({ start: i - 1, end: i + 3 });
+          router.push(`/movies/${i}`);
+        }}
+      />
+    );
+  }
+
   return (
-    <div className="flex gap-4">
-      <button onClick={() => router.push("/movies/")}>prev</button>
-      <button onClick={() => router.push("/movies/1")}>1</button>
-      <button onClick={() => router.push("/movies/2")}>2</button>
-      <button onClick={() => router.push("/movies/3")}>3</button>
-      <button onClick={() => router.push("/movies/")}>next</button>
+    <div className="w-full mt-8 flex items-center justify-center gap-2 font-bold">
+      {page.start > 0 && (
+        <Button
+          type={"button"}
+          text={`prev`}
+          onClick={() => {
+            setPage({ start: page.start - 1, end: page.start + 3 });
+            router.push(`/movies/${page.start}`);
+          }}
+        />
+      )}
+      {pagesTsx.slice(page.start, page.end)}
+      <p className="space-x-2">
+        <span>/</span>
+        <span className="text-active">{totalPages}</span>
+      </p>
     </div>
   );
 };

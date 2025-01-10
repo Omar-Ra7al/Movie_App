@@ -6,11 +6,11 @@ import SwiperHome from "../client/Swiper";
 import Logo from "../shared/Logo";
 import Search from "../client/Search";
 import { trindingMovies } from "@/app/api/api";
-import Pagination from "../client/Pagination";
 
 const Dashboard = async () => {
   const treindingMoviesData = await trindingMovies(1);
   const cardTrending = treindingMoviesData.results.slice(0, 12);
+  const totalPages = treindingMoviesData.total_pages;
   return (
     <div className="space-y-8">
       {/* Login Signup user Profile */}
@@ -49,8 +49,7 @@ const Dashboard = async () => {
       {/*  //>> */}
 
       <Search />
-      <TrindingCard />
-
+      <TrindingCard card={cardTrending} totalPages={totalPages} />
     </div>
   );
 };

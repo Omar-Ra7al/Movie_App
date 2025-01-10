@@ -162,7 +162,7 @@ const page = () => {
               </p>
               <Button
                 onClick={() => {
-                  dipatch(deleteAccount());
+                  authStatus == AuthStatus.loggedIn && dipatch(deleteAccount());
                 }}
                 type="submit"
                 text="Delete Account"
